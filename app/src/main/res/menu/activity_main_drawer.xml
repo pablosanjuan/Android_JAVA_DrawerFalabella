@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/buscar_cliente"
+            android:icon="@drawable/ic_search_black_24dp"
+            android:title="Buscar cliente" />
+    </group>
+
+    <item android:title="Reportes">
+        <menu>
+            <item
+                android:id="@+id/llamadas"
+                android:icon="@drawable/ic_call_black_24dp"
+                android:title="Registro de llamadas" />
+
+            <item
+                android:id="@+id/resumen"
+                android:icon="@drawable/ic_assignment_black_24dp"
+                android:title="Resumen de consultas" />
+            <item
+                android:id="@+id/historial"
+                android:icon="@drawable/ic_work_black_24dp"
+                android:title="Historial de ventas" />
+
+        </menu>
+    </item>
+</menu>
