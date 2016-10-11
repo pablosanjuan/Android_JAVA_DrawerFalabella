@@ -1,9 +1,13 @@
 package com.example.seraticsac.drawer;
 
+import android.app.SearchManager;
+import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,8 +19,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+        TextView tvEstado,tvDocumento,tvNombre,tvConsolidado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +35,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "No Hay Mas Usuarios", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        Intent searchIntent = getIntent();
+        if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
+            String query = searchIntent.getStringExtra(SearchManager.QUERY);
+            comprobar(query);
+        }
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "Comfortaa-Bold.ttf");
+
+        tvEstado = (TextView) findViewById(R.id.tvEstado);
+        tvDocumento= (TextView) findViewById(R.id.tvDocumento);
+        tvNombre= (TextView) findViewById(R.id.tvNombre);
+        tvConsolidado= (TextView) findViewById(R.id.tvConsolidado);
+        tvConsolidado.setTypeface(font);
+        tvNombre.setTypeface(font);
+        tvDocumento.setTypeface(font);
+        tvEstado.setTypeface(font);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -46,20 +62,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+    private void comprobar(String dato) {
+        switch (dato){
+            case "aa":
+            Toast.makeText(getBaseContext(), "Aprobado", Toast.LENGTH_SHORT).show();
+                break;
+            case "dd":
+                Toast.makeText(getBaseContext(), "Denegado", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                Toast.makeText(getBaseContext(), "No Encontrado", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+
+        SearchView searchView = (SearchView) menu.findItem(R.id.search_btn).getActionView();
+        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -69,10 +94,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.search_btn) {
             return true;
         }
         else if (id == R.id.item2){
+            Intent i = new Intent(getApplicationContext(), SplashActivity.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.left_in, R.anim.left_out);
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -110,5 +139,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

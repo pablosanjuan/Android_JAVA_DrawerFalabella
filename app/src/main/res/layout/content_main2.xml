@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey50"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.seraticsac.drawer.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tvConsolidado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:text="Preguntas: 0/3"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:cardCornerRadius="11dp"
+        app:cardElevation="14dp"
+        android:layout_margin="20dp"
+        android:layout_centerInParent="true">
+        <RelativeLayout
+            android:padding="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/tvEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="24sp"
+                android:text="APROBADO"
+                android:textStyle="bold"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/colorPrimary"/>
+            <ImageView
+                android:id="@+id/ivUsuario"
+                android:layout_marginLeft="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/tvEstado"
+                android:background="@mipmap/ic_person_black_24dp"/>
+            <TextView
+                android:id="@+id/tvNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="JOSE LUIS CERÓN"
+                android:textSize="14sp"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_alignTop="@+id/ivUsuario"
+                android:layout_alignBottom="@+id/ivUsuario"
+                android:gravity="center"
+                android:layout_below="@+id/tvEstado" />
+            <ImageView
+                android:id="@+id/ivDocumento"
+                android:layout_below="@+id/ivUsuario"
+                android:layout_marginLeft="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/ic_credit_card_black_24dp"/>
+            <TextView
+                android:id="@+id/tvDocumento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="001342032"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_alignTop="@+id/ivDocumento"
+                android:layout_alignBottom="@+id/ivDocumento"
+                android:layout_alignLeft="@+id/tvNombre"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_below="@+id/tvEstado" />
+
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/linea"
+                android:layout_below="@+id/ivDocumento"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/grey500" />
+
+            <TextView
+                android:id="@+id/concreto"
+                android:layout_below="@+id/linea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ivDocumento"
+                android:text="Concretó Venta?"/>
+
+            <RadioGroup
+                android:layout_marginBottom="10dp"
+                android:id="@+id/rgroup"
+                android:layout_below="@+id/linea"
+                android:layout_toRightOf="@+id/concreto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Si"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_si" />
+                <RadioButton
+                    android:text="No"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_no" />
+            </RadioGroup>
+            <TextView
+                android:id="@+id/preg2"
+                android:layout_below="@+id/rgroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ivDocumento"
+                android:text="Concretó Venta?"/>
+
+            <RadioGroup
+                android:layout_marginBottom="10dp"
+                android:id="@+id/rgroup2"
+                android:layout_below="@+id/rgroup"
+                android:layout_toRightOf="@+id/concreto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Si"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_a" />
+                <RadioButton
+                    android:text="No"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_b" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/aceptar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/white"
+                android:text="Aceptar"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
