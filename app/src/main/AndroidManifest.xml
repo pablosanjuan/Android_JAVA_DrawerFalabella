@@ -62,19 +62,21 @@
         <activity
             android:name=".Denegado1"
             android:label=""
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Denegado2"
             android:label=""
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NoEncontrado1"
             android:label=""
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NoEncontrado2"
             android:label=""
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity android:name=".RegistroLlamadas" />
+        <activity android:name=".ResumenConsultas"></activity>
     </application>
 
 </manifest>

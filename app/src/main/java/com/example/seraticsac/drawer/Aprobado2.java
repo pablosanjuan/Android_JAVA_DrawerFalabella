@@ -33,9 +33,9 @@ public class Aprobado2 extends AppCompatActivity implements NavigationView.OnNav
 
         Typeface font = Typeface.createFromAsset(getAssets(), "Comfortaa-Bold.ttf");
 
-        tvEstado = (TextView) findViewById(R.id.tvEstado);
-        tvDocumento= (TextView) findViewById(R.id.tvDocumento);
-        tvNombre= (TextView) findViewById(R.id.tvNombre);
+        tvEstado = (TextView) findViewById(R.id.tvEstado3);
+        tvDocumento= (TextView) findViewById(R.id.tvDocumento3);
+        tvNombre= (TextView) findViewById(R.id.tvNombre3);
         tvNombre.setTypeface(font);
         tvDocumento.setTypeface(font);
         tvEstado.setTypeface(font);
@@ -50,7 +50,7 @@ public class Aprobado2 extends AppCompatActivity implements NavigationView.OnNav
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        aceptar = (Button) findViewById(R.id.aceptar);
+        aceptar = (Button) findViewById(R.id.aceptar3);
         aceptar.setOnClickListener(this);
     }
 
@@ -91,13 +91,13 @@ public class Aprobado2 extends AppCompatActivity implements NavigationView.OnNav
                 finish();
                 break;
             case R.id.llamadas:
-                Intent l = new Intent(getApplicationContext(), SplashActivity.class);
+                Intent l = new Intent(getApplicationContext(), RegistroLlamadas.class);
                 startActivity(l);
                 overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 finish();
                 break;
             case R.id.resumen:
-                Intent r = new Intent(getApplicationContext(), SplashActivity.class);
+                Intent r = new Intent(getApplicationContext(), ResumenConsultas.class);
                 startActivity(r);
                 overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 finish();
@@ -128,8 +128,8 @@ public class Aprobado2 extends AppCompatActivity implements NavigationView.OnNav
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.aceptar:
-                Intent i = new Intent(getApplicationContext(),Aprobado1.class);
+            case R.id.aceptar3:
+                Intent i = new Intent(getApplicationContext(),Busqueda.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 finish();

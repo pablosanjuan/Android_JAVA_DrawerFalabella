@@ -24,7 +24,7 @@
             android:background="@color/white"
             android:layout_gravity="center">
             <TextView
-                android:id="@+id/tvEstado"
+                android:id="@+id/tvEstado2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -38,10 +38,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_below="@+id/tvEstado"
+                android:layout_below="@+id/tvEstado2"
                 android:background="@mipmap/ic_person_black_24dp"/>
             <TextView
-                android:id="@+id/tvNombre"
+                android:id="@+id/tvNombre2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -51,7 +51,7 @@
                 android:layout_alignTop="@+id/ivUsuario"
                 android:layout_alignBottom="@+id/ivUsuario"
                 android:gravity="center"
-                android:layout_below="@+id/tvEstado" />
+                android:layout_below="@+id/tvEstado2" />
             <ImageView
                 android:id="@+id/ivDocumento"
                 android:layout_below="@+id/ivUsuario"
@@ -60,7 +60,7 @@
                 android:layout_height="30dp"
                 android:background="@mipmap/ic_credit_card_black_24dp"/>
             <TextView
-                android:id="@+id/tvDocumento"
+                android:id="@+id/tvDocumento2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -83,7 +83,7 @@
                 android:background="@color/grey500" />
 
             <TextView
-                android:id="@+id/concreto"
+                android:id="@+id/preg21"
                 android:layout_below="@+id/linea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
                 android:layout_marginBottom="10dp"
                 android:id="@+id/rgroup"
                 android:layout_below="@+id/linea"
-                android:layout_toRightOf="@+id/concreto"
+                android:layout_toRightOf="@+id/preg21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RadioButton
@@ -109,7 +109,7 @@
                     android:id="@+id/rb_no" />
             </RadioGroup>
             <TextView
-                android:id="@+id/preg2"
+                android:id="@+id/preg22"
                 android:layout_below="@+id/rgroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                 android:layout_marginBottom="10dp"
                 android:id="@+id/rgroup2"
                 android:layout_below="@+id/rgroup"
-                android:layout_toRightOf="@+id/concreto"
+                android:layout_toRightOf="@+id/preg21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RadioButton
@@ -136,7 +136,7 @@
             </RadioGroup>
 
             <Button
-                android:id="@+id/aceptar"
+                android:id="@+id/aceptar2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimaryDark"

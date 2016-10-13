@@ -91,13 +91,13 @@ public class Aprobado1 extends AppCompatActivity implements NavigationView.OnNav
                 finish();
                 break;
             case R.id.llamadas:
-                Intent l = new Intent(getApplicationContext(), SplashActivity.class);
+                Intent l = new Intent(getApplicationContext(), RegistroLlamadas.class);
                 startActivity(l);
                 overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 finish();
                 break;
             case R.id.resumen:
-                Intent r = new Intent(getApplicationContext(), SplashActivity.class);
+                Intent r = new Intent(getApplicationContext(), ResumenConsultas.class);
                 startActivity(r);
                 overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 finish();
@@ -105,7 +105,7 @@ public class Aprobado1 extends AppCompatActivity implements NavigationView.OnNav
             case R.id.historial:
                 Intent h = new Intent(getApplicationContext(), HistorialVentas.class);
                 startActivity(h);
-                overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 finish();
                 break;
         }
