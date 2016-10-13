@@ -4,6 +4,12 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/inbox"
+            android:title="Inbox"
+            app1:itemTextAppearance="@style/NavigationDrawerStyle" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
             android:id="@+id/buscar_cliente"
             android:icon="@drawable/ic_search_black_24dp"
             android:title="Buscar cliente"

@@ -22,7 +22,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Buscar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
         TextView tvEstado,tvDocumento,tvNombre,tvConsolidado;
 
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Intent searchIntent = getIntent();
         if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
+
             String query = searchIntent.getStringExtra(SearchManager.QUERY);
             comprobar(query);
         }
@@ -95,13 +96,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.search_btn) {
-            return true;
-        }
-        else if (id == R.id.item2){
-            Intent i = new Intent(getApplicationContext(), SplashActivity.class);
-            startActivity(i);
-            overridePendingTransition(R.anim.left_in, R.anim.left_out);
-            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

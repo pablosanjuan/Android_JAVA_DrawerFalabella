@@ -9,10 +9,4 @@
         app:actionViewClass="android.support.v7.widget.SearchView"
         android:icon="@mipmap/ic_search_white_24dp"
         app:showAsAction="ifRoom|collapseActionView" />
-    <item
-        android:id="@+id/item2"
-        android:orderInCategory="102"
-        android:title="opction 2"
-        android:icon="@mipmap/ic_assignment_white_24dp"
-        app:showAsAction="always" />
 </menu>
