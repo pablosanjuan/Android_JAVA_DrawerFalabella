@@ -1,13 +1,8 @@
 package com.example.seraticsac.drawer;
 
-import android.app.SearchManager;
-import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,12 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class Buscar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Aprobado1 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
         TextView tvEstado,tvDocumento,tvNombre,tvConsolidado;
+    private Button aceptar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,20 +31,11 @@ public class Buscar extends AppCompatActivity implements NavigationView.OnNaviga
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent searchIntent = getIntent();
-        if (Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
-
-            String query = searchIntent.getStringExtra(SearchManager.QUERY);
-            comprobar(query);
-        }
-
         Typeface font = Typeface.createFromAsset(getAssets(), "Comfortaa-Bold.ttf");
 
         tvEstado = (TextView) findViewById(R.id.tvEstado);
         tvDocumento= (TextView) findViewById(R.id.tvDocumento);
         tvNombre= (TextView) findViewById(R.id.tvNombre);
-        tvConsolidado= (TextView) findViewById(R.id.tvConsolidado);
-        tvConsolidado.setTypeface(font);
         tvNombre.setTypeface(font);
         tvDocumento.setTypeface(font);
         tvEstado.setTypeface(font);
@@ -61,29 +48,15 @@ public class Buscar extends AppCompatActivity implements NavigationView.OnNaviga
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
 
-    private void comprobar(String dato) {
-        switch (dato){
-            case "aa":
-            Toast.makeText(getBaseContext(), "Aprobado", Toast.LENGTH_SHORT).show();
-                break;
-            case "dd":
-                Toast.makeText(getBaseContext(), "Denegado", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                Toast.makeText(getBaseContext(), "No Encontrado", Toast.LENGTH_SHORT).show();
-                break;
-        }
+
+        aceptar = (Button) findViewById(R.id.aceptar);
+        aceptar.setOnClickListener(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-
-        SearchView searchView = (SearchView) menu.findItem(R.id.search_btn).getActionView();
-        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        getMenuInflater().inflate(R.menu.menu2, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -105,28 +78,34 @@ public class Buscar extends AppCompatActivity implements NavigationView.OnNaviga
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.buscar_cliente:
-                Intent i = new Intent(getApplicationContext(), SplashActivity.class);
+            case R.id.inbox:
+                Intent i = new Intent(getApplicationContext(), Index.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 finish();
                 break;
-            case R.id.resumen:
-                Intent r = new Intent(getApplicationContext(), SplashActivity.class);
-                startActivity(r);
-                overridePendingTransition(R.anim.right_in, R.anim.right_out);
-                finish();
-                break;
-            case R.id.historial:
-                Intent h = new Intent(getApplicationContext(), SplashActivity.class);
-                startActivity(h);
-                overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
+            case R.id.buscar_cliente:
+                Intent b = new Intent(getApplicationContext(), Busqueda.class);
+                startActivity(b);
+                overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
                 finish();
                 break;
             case R.id.llamadas:
                 Intent l = new Intent(getApplicationContext(), SplashActivity.class);
                 startActivity(l);
                 overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
+                finish();
+                break;
+            case R.id.resumen:
+                Intent r = new Intent(getApplicationContext(), SplashActivity.class);
+                startActivity(r);
+                overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
+                finish();
+                break;
+            case R.id.historial:
+                Intent h = new Intent(getApplicationContext(), HistorialVentas.class);
+                startActivity(h);
+                overridePendingTransition(R.anim.left_in, R.anim.left_out);
                 finish();
                 break;
         }
@@ -143,6 +122,18 @@ public class Buscar extends AppCompatActivity implements NavigationView.OnNaviga
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.aceptar:
+                Intent i = new Intent(getApplicationContext(), Aprobado2.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
+                finish();
+                break;
         }
     }
 }

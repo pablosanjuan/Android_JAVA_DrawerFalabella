@@ -20,15 +20,18 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         TimerTask task = new TimerTask() {
-            @Override
             public void run() {
-                Intent i = new Intent().setClass(SplashActivity.this, Index.class);
-                startActivity(i);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                finish();
+                ingresar();
             }
         };
         Timer timer = new Timer();
         timer.schedule(task, SPLASH_SCREEN_DELAY);
+    }
+
+    private void ingresar() {
+        Intent i = new Intent().setClass(SplashActivity.this, Index.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+        finish();
     }
 }
